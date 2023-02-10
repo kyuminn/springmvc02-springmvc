@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+// REST API (HTTP API라고도 함) 설계할 때 json 방식으로
+// 데이터를 주고받음 !
 /**
  * {"username":"hello","age":20}
  * content-type=application/json
@@ -23,6 +25,11 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 @Controller
 public class RequestBodyJsonController {
+    /**
+     * Spring MVC는 다음의 경우에 HTTP 메시지 컨버터를 적용한다
+     * 1. HTTP 요청 : @RequestBody, HttpEntity(RequestEntity)
+     * 2. HTTP 응답 : @ResponseBody, HttpEntity(ResponseEntity)
+     */
 
     // json -> object transform
     private ObjectMapper objectMapper = new ObjectMapper();
